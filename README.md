@@ -1,24 +1,15 @@
-# its-tinkoff
+# IT's Tinkoff Solution Cup Final (Frontend)
 
-## Project setup
+Продакшн билд доступен по адресу http://avkrasnov.ru
+
+## Запуск приложения локально
 ```
-npm install
+npm start
 ```
 
-### Compiles and hot-reloads for development
+### Запуск в режиме разработки
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+После запуска приложение будет доступно по адресу http://localhost:8080
