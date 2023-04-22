@@ -39,8 +39,12 @@ export default {
   data () {
     return {
       selectedCategory: false,
-      amount: ''
+      amount: '',
+      modalElement: false
     }
+  },
+  mounted () {
+    this.modalElement = new window.bootstrap.Modal(document.getElementById('addExpenseModal'))
   },
   computed: {
     categories () {
@@ -60,6 +64,12 @@ export default {
         category: this.selectedCategory.id
       }
       this.$store.dispatch('addExpense', expense)
+      this.modalElement.hide()
+      this.clearForm()
+    },
+    clearForm () {
+      this.amount = ''
+      this.selectedCategory = false
     }
   }
 }

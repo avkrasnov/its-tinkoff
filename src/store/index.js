@@ -14,12 +14,20 @@ export default createStore({
   },
   mutations: {
     newExpense (state, payload) {
+      payload.category = payload.category || 'others'
+      payload.amount = payload.amount || 0
       state.expenses.push(payload)
+    },
+    deleteExpense (state, index) {
+      state.expenses.splice(index, 1)
     }
   },
   actions: {
-    addExpense ({ commit, state }, payload) {
+    addExpense ({ commit }, payload) {
       commit('newExpense', payload)
+    },
+    removeExpense ({ commit }, index) {
+      commit('deleteExpense', index)
     }
   },
   modules: {

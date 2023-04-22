@@ -4,6 +4,9 @@
     {{ getCategoryById(expenseItem.category).name }}
     :
     {{ expenseItem.amount }}
+    <button type="button" class="btn btn-danger" @click="deleteByIndex(i)">
+      <i class="fa-solid fa-trash"></i>
+    </button>
   </div>
 </template>
 
@@ -21,6 +24,9 @@ export default {
   methods: {
     getCategoryById (categoryId) {
       return this.categories.find(category => category.id === categoryId)
+    },
+    deleteByIndex (i) {
+      this.$store.dispatch('removeExpense', i)
     }
   }
 }
