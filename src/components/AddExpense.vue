@@ -89,7 +89,8 @@ export default {
     add () {
       const expense = {
         amount: this.amount,
-        category: this.selectedCategory.id
+        category: this.selectedCategory.id,
+        date: this.datetimeFromString(document.querySelector('#datetimepicker1 input').value)
       }
       this.$store.dispatch('addExpense', expense)
       this.modalElement.hide()
@@ -98,6 +99,14 @@ export default {
     clearForm () {
       this.amount = ''
       this.selectedCategory = false
+      this.datetime = ''
+    },
+    datetimeFromString (str) {
+      const arr = str.split(' ')
+      arr[0] = arr[0].split('.').reverse()
+      arr[0][1] -= 1
+      arr[1] = arr[1].split(':')
+      return new Date(...arr[0], ...arr[1])
     }
   }
 }

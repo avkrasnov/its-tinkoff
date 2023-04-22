@@ -16,7 +16,7 @@ export default createStore({
     newExpense (state, payload) {
       payload.category = payload.category || 'others'
       payload.amount = payload.amount || 0
-      payload.date = new Date()
+      payload.date = payload.date || new Date()
       state.expenses.push(payload)
     },
     deleteExpense (state, index) {
