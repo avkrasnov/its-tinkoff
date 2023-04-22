@@ -16,7 +16,8 @@ export default {
   name: 'ExpensesList',
   computed: {
     list () {
-      return this.$store.state.expenses
+      const expenses = this.$store.state.expenses
+      return [...expenses].sort((a, b) => b.date - a.date)
     },
     categories () {
       return this.$store.state.categories
