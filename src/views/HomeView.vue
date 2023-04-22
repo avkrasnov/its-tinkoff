@@ -7,7 +7,7 @@
       </h1>
       <Filter />
     </div>
-    <ExpensesList />
+    <ExpensesList class="mt-2"/>
   </div>
 </template>
 
