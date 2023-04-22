@@ -102,6 +102,9 @@ export default {
       this.datetime = ''
     },
     datetimeFromString (str) {
+      if (!str) {
+        return new Date()
+      }
       const arr = str.split(' ')
       arr[0] = arr[0].split('.').reverse()
       arr[0][1] -= 1
