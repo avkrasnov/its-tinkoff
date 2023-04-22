@@ -5,8 +5,8 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Категория</th>
-        <th scope="col">Сумма</th>
         <th scope="col">Дата</th>
+        <th scope="col">Сумма</th>
         <th></th>
       </tr>
     </thead>
@@ -14,13 +14,20 @@
       <tr v-for="(expenseItem, i) in list" :key="i">
         <td>{{ list.length - i }}</td>
         <td>{{ getCategoryById(expenseItem.category).name }}</td>
-        <td>{{ expenseItem.amount }} &#8381;</td>
         <td>{{ expenseItem.date.toLocaleString() }}</td>
+        <td>{{ expenseItem.amount }} &#8381;</td>
         <td>
           <button type="button" class="btn btn-danger" @click="deleteByIndex(i)">
             <i class="fa-solid fa-trash"></i>
           </button>
         </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <th class="text-end">Итого</th>
+        <th>{{ total }} &#8381;</th>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -36,6 +43,9 @@ export default {
     },
     categories () {
       return this.$store.state.categories
+    },
+    total () {
+      return this.list.reduce((sum, current) => sum + parseFloat(current.amount), 0)
     }
   },
   methods: {
