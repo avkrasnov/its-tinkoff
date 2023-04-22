@@ -4,6 +4,7 @@
     {{ getCategoryById(expenseItem.category).name }}
     :
     {{ expenseItem.amount }}
+    {{ expenseItem.date.toLocaleString() }}
     <button type="button" class="btn btn-danger" @click="deleteByIndex(i)">
       <i class="fa-solid fa-trash"></i>
     </button>

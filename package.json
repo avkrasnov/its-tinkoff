@@ -9,6 +9,7 @@
     "start": "npm i && npm run build && node app.js"
   },
   "dependencies": {
+    "@eonasdan/tempus-dominus": "github:eonasdan/tempus-dominus",
     "connect-history-api-fallback": "^2.0.0",
     "core-js": "^3.8.3",
     "express": "^4.18.2",

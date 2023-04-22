@@ -24,6 +24,27 @@
             <input type="text" class="form-control" v-model="amount" placeholder="Сумма" aria-label="Рублей">
             <span class="input-group-text">&#8381;</span>
           </div>
+          <div
+            class="input-group log-event"
+            id="datetimepicker1"
+            data-td-target-input="nearest"
+            data-td-target-toggle="nearest"
+          >
+            <input
+              id="datetimepicker1Input"
+              type="text"
+              class="form-control"
+              data-td-target="#datetimepicker1"
+              placeholder="Дата и время"
+            />
+            <span
+              class="input-group-text"
+              data-td-target="#datetimepicker1"
+              data-td-toggle="datetimepicker"
+            >
+              <i class="fas fa-calendar"></i>
+            </span>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
@@ -35,16 +56,23 @@
 </template>
 
 <script>
+import { TempusDominus, loadLocale, locale } from '@eonasdan/tempus-dominus'
+import { localization, name } from '@eonasdan/tempus-dominus/dist/locales/ru'
+
 export default {
   data () {
     return {
       selectedCategory: false,
       amount: '',
-      modalElement: false
+      modalElement: false,
+      dateTimePicker: false
     }
   },
   mounted () {
     this.modalElement = new window.bootstrap.Modal(document.getElementById('addExpenseModal'))
+    loadLocale({ localization, name })
+    locale(name)
+    this.dateTimePicker = new TempusDominus(document.getElementById('datetimepicker1'))
   },
   computed: {
     categories () {
