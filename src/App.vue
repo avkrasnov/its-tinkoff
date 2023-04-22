@@ -1,12 +1,6 @@
 <template>
   <div class="container">
-    <div class="row">
-      <nav class="col">
-        <router-link to="/">Главная</router-link> |
-        <router-link to="/about">Пока пусто</router-link>
-      </nav>
-    </div>
-    <router-view class="row"/>
+    <router-view class="row mt-3"/>
   </div>
 </template>
 
