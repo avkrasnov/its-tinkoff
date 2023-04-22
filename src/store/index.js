@@ -8,7 +8,8 @@ export default createStore({
       { id: 'home', name: 'Дом, ремонт' },
       { id: 'cash', name: 'Наличные' },
       { id: 'others', name: 'Другое' }
-    ]
+    ],
+    filter: false
   },
   getters: {
   },
@@ -21,6 +22,9 @@ export default createStore({
     },
     deleteExpense (state, index) {
       state.expenses.splice(index, 1)
+    },
+    setFilter (state, category) {
+      state.filter = category
     }
   },
   actions: {

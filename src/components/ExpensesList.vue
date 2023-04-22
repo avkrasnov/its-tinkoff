@@ -38,7 +38,10 @@ export default {
   name: 'ExpensesList',
   computed: {
     list () {
-      const expenses = this.$store.state.expenses
+      let expenses = this.$store.state.expenses
+      if (this.$store.state.filter) {
+        expenses = expenses.filter(e => e.category === this.$store.state.filter)
+      }
       return [...expenses].sort((a, b) => b.date - a.date)
     },
     categories () {
